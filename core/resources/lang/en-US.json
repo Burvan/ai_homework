@@ -1,5 +1,33 @@
 {
-  "common" : {
-    "example_key" : "Example Value"
+  "errors": {
+    "unknown": "Unknown error",
+    "networkError": "No internet connection",
+    "badRequest": "Invalid request",
+    "notFound": "No results",
+    "internalServerError": "Server error",
+    "timeout": "Request waiting time exceeded"
+  },
+  "main_page": {
+    "anyStatus": "Any status",
+    "anySpecies": "Any species",
+    "rickAndMorty": "Rick & Morty",
+    "status": "Status",
+    "species": "Species",
+    "gender": "Gender",
+    "origin": "Origin",
+    "location": "Location",
+    "episode": "Episodes",
+    "alive": "Alive",
+    "dead": "Dead",
+    "unknown": "Unknown",
+    "human": "Human",
+    "alien": "Alien",
+    "humanoid": "Humanoid",
+    "poopybutthole": "Poopybutthole",
+    "mythological": "Mythological",
+    "animal": "Animal",
+    "robot": "Robot",
+    "cronenberg": "Cronenberg",
+    "disease": "Disease"
   }
 }
