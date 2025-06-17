@@ -9,6 +9,11 @@ dependencies:
   flutter:
     sdk: flutter
 
+  domain:
+    path: ../domain
+  core_ui:
+    path: ../core_ui
+
   get_it: ^7.6.7
   dio: ^5.4.0
   logger: ^2.0.2

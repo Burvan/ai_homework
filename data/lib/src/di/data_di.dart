@@ -1,29 +1,41 @@
 import 'package:core/core.dart';
+import 'package:domain/domain.dart';
 
 import '../../data.dart';
 
 abstract class DataDI {
   static void initDependencies(GetIt locator) {
-    _initApi(locator);
-    _initProviders(locator);
-    _initRepositories(locator);
-  }
+    locator.registerLazySingleton<Dio>(
+      () => locator<DioConfig>().dio,
+    );
 
-  static void _initApi(GetIt locator) {
     locator.registerLazySingleton<DioConfig>(
       () => DioConfig(
         appConfig: locator<AppConfig>(),
       ),
     );
 
+    locator.registerLazySingleton<ErrorHandler>(
+      () => ErrorHandler(),
+    );
+
     locator.registerLazySingleton<ApiProvider>(
       () => ApiProvider(
-        locator<DioConfig>().dio,
+        dio: locator.get<Dio>(),
+        errorHandler: locator.get<ErrorHandler>(),
+      ),
+    );
+
+    locator.registerLazySingleton<CharacterRepository>(
+      () => CharacterRepositoryImpl(
+        apiProvider: locator.get<ApiProvider>(),
+      ),
+    );
+
+    locator.registerLazySingleton<FetchCharactersUseCase>(
+      () => FetchCharactersUseCase(
+        characterRepository: locator.get<CharacterRepository>(),
       ),
     );
   }
-
-  static void _initProviders(GetIt locator) {}
-
-  static void _initRepositories(GetIt locator) {}
 }

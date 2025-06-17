@@ -1,12 +1,16 @@
 import 'package:core/core.dart';
 import 'package:data/data.dart';
-import 'package:domain/domain.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:navigation/navigation.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
+
+  await SystemChrome.setPreferredOrientations(<DeviceOrientation>[
+    DeviceOrientation.portraitUp,
+  ]);
 
   _setupDI(Flavor.dev);
 
@@ -19,7 +23,6 @@ void _setupDI(Flavor flavor) {
     init: (_) {
       AppDI.initDependencies(appLocator, flavor);
       DataDI.initDependencies(appLocator);
-      DomainDI.initDependencies(appLocator);
       NavigationDI.initDependencies(appLocator);
     },
   );
