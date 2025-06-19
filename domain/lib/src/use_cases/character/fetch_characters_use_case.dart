@@ -1,6 +1,6 @@
 part of use_cases;
 
-final class FetchCharactersUseCase
+class FetchCharactersUseCase
     implements FutureUseCase<QueryPayLoad, RequestResult> {
   final CharacterRepository _characterRepository;
 

@@ -19,7 +19,6 @@ Future<void> main() async {
 
 void _setupDI(Flavor flavor) {
   appLocator.pushNewScope(
-    scopeName: unauthScope,
     init: (_) {
       AppDI.initDependencies(appLocator, flavor);
       DataDI.initDependencies(appLocator);
